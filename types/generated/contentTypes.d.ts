@@ -362,6 +362,142 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
+export interface ApiBandBand extends Schema.CollectionType {
+  collectionName: 'bands';
+  info: {
+    singularName: 'band';
+    pluralName: 'bands';
+    displayName: 'Band';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    bandname: Attribute.String &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetMinMaxLength<{
+        maxLength: 50;
+      }>;
+    country: Attribute.String;
+    musicstyle: Attribute.Component<'musicstyle.musicstyle'>;
+    description: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 2000;
+      }>;
+    bandphoto: Attribute.Media<'images'>;
+    linklist: Attribute.Component<'linklist.linklist', true>;
+    events: Attribute.Relation<
+      'api::band.band',
+      'manyToMany',
+      'api::event.event'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::band.band', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::band.band', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiEventEvent extends Schema.CollectionType {
+  collectionName: 'events';
+  info: {
+    singularName: 'event';
+    pluralName: 'events';
+    displayName: 'Event';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 40;
+      }>;
+    type: Attribute.Enumeration<
+      ['Concert', 'Festival', 'Kufa', 'Treff', 'Andere']
+    > &
+      Attribute.Required &
+      Attribute.DefaultTo<'Concert'>;
+    eventtext: Attribute.RichText;
+    eventstart: Attribute.DateTime &
+      Attribute.Required &
+      Attribute.DefaultTo<'2024-06-17T18:00:28.495Z'>;
+    eventend: Attribute.DateTime;
+    bands: Attribute.Relation<
+      'api::event.event',
+      'manyToMany',
+      'api::band.band'
+    >;
+    location: Attribute.Relation<
+      'api::event.event',
+      'oneToOne',
+      'api::location.location'
+    >;
+    ticket: Attribute.Component<'ticket.ticket'> & Attribute.Required;
+    creator: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::event.event',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::event.event',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiLocationLocation extends Schema.CollectionType {
+  collectionName: 'locations';
+  info: {
+    singularName: 'location';
+    pluralName: 'locations';
+    displayName: 'location';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetMinMaxLength<{
+        maxLength: 50;
+      }>;
+    description: Attribute.Blocks;
+    Adresse: Attribute.Component<'address.adresse'> & Attribute.Required;
+    dogsAllowed: Attribute.Boolean;
+    email: Attribute.String;
+    linklist: Attribute.Component<'linklist.linklist'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::location.location',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::location.location',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -788,141 +924,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
-export interface ApiBandBand extends Schema.CollectionType {
-  collectionName: 'bands';
-  info: {
-    singularName: 'band';
-    pluralName: 'bands';
-    displayName: 'Band';
-    description: '';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    bandname: Attribute.String &
-      Attribute.Required &
-      Attribute.Unique &
-      Attribute.SetMinMaxLength<{
-        maxLength: 50;
-      }>;
-    country: Attribute.String;
-    musicstyle: Attribute.Component<'musicstyle.musicstyle'>;
-    description: Attribute.Text &
-      Attribute.SetMinMaxLength<{
-        maxLength: 2000;
-      }>;
-    bandphoto: Attribute.Media<'images'>;
-    linklist: Attribute.Component<'linklist.linklist', true>;
-    events: Attribute.Relation<
-      'api::band.band',
-      'manyToMany',
-      'api::event.event'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::band.band', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::band.band', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
-export interface ApiEventEvent extends Schema.CollectionType {
-  collectionName: 'events';
-  info: {
-    singularName: 'event';
-    pluralName: 'events';
-    displayName: 'Event';
-    description: '';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    name: Attribute.String &
-      Attribute.Required &
-      Attribute.SetMinMaxLength<{
-        maxLength: 50;
-      }>;
-    type: Attribute.Enumeration<
-      ['Concert', 'Festival', 'Kufa', 'Bar', 'Andere']
-    > &
-      Attribute.Required &
-      Attribute.DefaultTo<'Concert'>;
-    musicstyle: Attribute.Component<'musicstyle.musicstyle'>;
-    eventtext: Attribute.RichText;
-    eventstart: Attribute.DateTime & Attribute.Required;
-    eventend: Attribute.DateTime;
-    bands: Attribute.Relation<
-      'api::event.event',
-      'manyToMany',
-      'api::band.band'
-    >;
-    location: Attribute.Relation<
-      'api::event.event',
-      'oneToOne',
-      'api::location.location'
-    >;
-    ticket: Attribute.Component<'ticket.ticket'> & Attribute.Required;
-    repetition: Attribute.Component<'repetition.repetition'>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::event.event',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::event.event',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiLocationLocation extends Schema.CollectionType {
-  collectionName: 'locations';
-  info: {
-    singularName: 'location';
-    pluralName: 'locations';
-    displayName: 'location';
-    description: '';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    name: Attribute.String &
-      Attribute.Required &
-      Attribute.Unique &
-      Attribute.SetMinMaxLength<{
-        maxLength: 50;
-      }>;
-    description: Attribute.Blocks;
-    Adresse: Attribute.Component<'address.adresse'> & Attribute.Required;
-    dogsAllowed: Attribute.Boolean;
-    email: Attribute.String;
-    linklist: Attribute.Component<'linklist.linklist'>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::location.location',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::location.location',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -933,6 +934,9 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
+      'api::band.band': ApiBandBand;
+      'api::event.event': ApiEventEvent;
+      'api::location.location': ApiLocationLocation;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -941,9 +945,6 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'api::band.band': ApiBandBand;
-      'api::event.event': ApiEventEvent;
-      'api::location.location': ApiLocationLocation;
     }
   }
 }

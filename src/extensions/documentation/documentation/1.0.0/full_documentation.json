@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2024-06-13T12:51:50.649Z"
+    "x-generation-date": "2024-06-17T15:09:52.034Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -860,29 +860,9 @@
                             "Concert",
                             "Festival",
                             "Kufa",
-                            "Bar",
+                            "Treff",
                             "Andere"
                           ]
-                        },
-                        "musicstyle": {
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "type": "number"
-                            },
-                            "Punk": {
-                              "type": "boolean"
-                            },
-                            "Metal": {
-                              "type": "boolean"
-                            },
-                            "Rock": {
-                              "type": "boolean"
-                            },
-                            "Ska": {
-                              "type": "boolean"
-                            }
-                          }
                         },
                         "eventtext": {
                           "type": "string"
@@ -1287,26 +1267,8 @@
                             }
                           }
                         },
-                        "repetition": {
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "type": "number"
-                            },
-                            "every": {
-                              "type": "string",
-                              "enum": [
-                                "day",
-                                "week",
-                                "secondweek",
-                                "month"
-                              ]
-                            },
-                            "enddate": {
-                              "type": "string",
-                              "format": "date"
-                            }
-                          }
+                        "creator": {
+                          "type": "string"
                         },
                         "createdAt": {
                           "type": "string",
@@ -1481,12 +1443,9 @@
                   "Concert",
                   "Festival",
                   "Kufa",
-                  "Bar",
+                  "Treff",
                   "Andere"
                 ]
-              },
-              "musicstyle": {
-                "$ref": "#/components/schemas/MusicstyleMusicstyleComponent"
               },
               "eventtext": {
                 "type": "string"
@@ -1527,8 +1486,8 @@
               "ticket": {
                 "$ref": "#/components/schemas/TicketTicketComponent"
               },
-              "repetition": {
-                "$ref": "#/components/schemas/RepetitionRepetitionComponent"
+              "creator": {
+                "type": "string"
               }
             }
           }
@@ -1598,12 +1557,9 @@
               "Concert",
               "Festival",
               "Kufa",
-              "Bar",
+              "Treff",
               "Andere"
             ]
-          },
-          "musicstyle": {
-            "$ref": "#/components/schemas/MusicstyleMusicstyleComponent"
           },
           "eventtext": {
             "type": "string"
@@ -2321,29 +2277,9 @@
                                           "Concert",
                                           "Festival",
                                           "Kufa",
-                                          "Bar",
+                                          "Treff",
                                           "Andere"
                                         ]
-                                      },
-                                      "musicstyle": {
-                                        "type": "object",
-                                        "properties": {
-                                          "id": {
-                                            "type": "number"
-                                          },
-                                          "Punk": {
-                                            "type": "boolean"
-                                          },
-                                          "Metal": {
-                                            "type": "boolean"
-                                          },
-                                          "Rock": {
-                                            "type": "boolean"
-                                          },
-                                          "Ska": {
-                                            "type": "boolean"
-                                          }
-                                        }
                                       },
                                       "eventtext": {
                                         "type": "string"
@@ -2500,26 +2436,8 @@
                                           }
                                         }
                                       },
-                                      "repetition": {
-                                        "type": "object",
-                                        "properties": {
-                                          "id": {
-                                            "type": "number"
-                                          },
-                                          "every": {
-                                            "type": "string",
-                                            "enum": [
-                                              "day",
-                                              "week",
-                                              "secondweek",
-                                              "month"
-                                            ]
-                                          },
-                                          "enddate": {
-                                            "type": "string",
-                                            "format": "date"
-                                          }
-                                        }
+                                      "creator": {
+                                        "type": "string"
                                       },
                                       "createdAt": {
                                         "type": "string",
@@ -2639,8 +2557,8 @@
           "ticket": {
             "$ref": "#/components/schemas/TicketTicketComponent"
           },
-          "repetition": {
-            "$ref": "#/components/schemas/RepetitionRepetitionComponent"
+          "creator": {
+            "type": "string"
           },
           "createdAt": {
             "type": "string",
@@ -2728,27 +2646,6 @@
           "chf": {
             "type": "number",
             "format": "float"
-          }
-        }
-      },
-      "RepetitionRepetitionComponent": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number"
-          },
-          "every": {
-            "type": "string",
-            "enum": [
-              "day",
-              "week",
-              "secondweek",
-              "month"
-            ]
-          },
-          "enddate": {
-            "type": "string",
-            "format": "date"
           }
         }
       },

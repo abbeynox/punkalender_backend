@@ -15,7 +15,7 @@
     "name": {
       "type": "string",
       "required": true,
-      "maxLength": 50,
+      "maxLength": 40,
       "unique": false
     },
     "type": {
@@ -24,24 +24,19 @@
         "Concert",
         "Festival",
         "Kufa",
-        "Bar",
+        "Treff",
         "Andere"
       ],
       "default": "Concert",
       "required": true
-    },
-    "musicstyle": {
-      "displayName": "musicstyle",
-      "type": "component",
-      "repeatable": false,
-      "component": "musicstyle.musicstyle"
     },
     "eventtext": {
       "type": "richtext"
     },
     "eventstart": {
       "type": "datetime",
-      "required": true
+      "required": true,
+      "default": "2024-06-17T18:00:28.495Z"
     },
     "eventend": {
       "type": "datetime"
@@ -64,11 +59,8 @@
       "component": "ticket.ticket",
       "required": true
     },
-    "repetition": {
-      "displayName": "repetition",
-      "type": "component",
-      "repeatable": false,
-      "component": "repetition.repetition"
+    "creator": {
+      "type": "string"
     }
   }
 }
