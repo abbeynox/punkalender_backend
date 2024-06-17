@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_linklist_linklists",
+  "info": {
+    "displayName": "linklist",
+    "icon": "cursor",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "url": {
+      "type": "string",
+      "regex": "^https:\\/\\/[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 40,
+      "default": "Website",
+      "required": true
+    }
+  }
+}

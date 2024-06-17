@@ -1,0 +1,74 @@
+{
+  "kind": "collectionType",
+  "collectionName": "events",
+  "info": {
+    "singularName": "event",
+    "pluralName": "events",
+    "displayName": "Event",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 50,
+      "unique": false
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Concert",
+        "Festival",
+        "Kufa",
+        "Bar",
+        "Andere"
+      ],
+      "default": "Concert",
+      "required": true
+    },
+    "musicstyle": {
+      "displayName": "musicstyle",
+      "type": "component",
+      "repeatable": false,
+      "component": "musicstyle.musicstyle"
+    },
+    "eventtext": {
+      "type": "richtext"
+    },
+    "eventstart": {
+      "type": "datetime",
+      "required": true
+    },
+    "eventend": {
+      "type": "datetime"
+    },
+    "bands": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::band.band",
+      "inversedBy": "events"
+    },
+    "location": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::location.location"
+    },
+    "ticket": {
+      "displayName": "ticket",
+      "type": "component",
+      "repeatable": false,
+      "component": "ticket.ticket",
+      "required": true
+    },
+    "repetition": {
+      "displayName": "repetition",
+      "type": "component",
+      "repeatable": false,
+      "component": "repetition.repetition"
+    }
+  }
+}

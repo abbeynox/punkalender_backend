@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_musicstyle_musicstyles",
+  "info": {
+    "displayName": "musicstyle"
+  },
+  "options": {},
+  "attributes": {
+    "Punk": {
+      "type": "boolean"
+    },
+    "Metal": {
+      "type": "boolean"
+    },
+    "Rock": {
+      "type": "boolean"
+    },
+    "Ska": {
+      "type": "boolean"
+    }
+  }
+}

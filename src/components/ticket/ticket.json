@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_ticket_tickets",
+  "info": {
+    "displayName": "ticket",
+    "icon": "discuss"
+  },
+  "options": {},
+  "attributes": {
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Kostenlos",
+        "Kollekte",
+        "Eintrittspreis"
+      ],
+      "default": "Kollekte",
+      "required": true
+    },
+    "ticketlink": {
+      "type": "string",
+      "regex": "^https:\\/\\/[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$"
+    },
+    "chf": {
+      "max": 999,
+      "type": "decimal"
+    }
+  }
+}

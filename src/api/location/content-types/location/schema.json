@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "locations",
+  "info": {
+    "singularName": "location",
+    "pluralName": "locations",
+    "displayName": "location",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 50,
+      "unique": true
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "Adresse": {
+      "displayName": "Adresse",
+      "type": "component",
+      "repeatable": false,
+      "component": "address.adresse",
+      "required": true
+    },
+    "dogsAllowed": {
+      "type": "boolean"
+    },
+    "email": {
+      "type": "string",
+      "regex": "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+    },
+    "linklist": {
+      "type": "component",
+      "repeatable": false,
+      "component": "linklist.linklist"
+    }
+  }
+}

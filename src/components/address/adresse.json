@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_address_adresses",
+  "info": {
+    "displayName": "Adresse",
+    "icon": "car",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "street": {
+      "type": "string",
+      "maxLength": 40,
+      "unique": false
+    },
+    "city": {
+      "type": "string",
+      "required": true,
+      "maxLength": 40
+    },
+    "plz": {
+      "type": "integer",
+      "required": true
+    }
+  }
+}

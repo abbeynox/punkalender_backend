@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_repetition_repetitions",
+  "info": {
+    "displayName": "repetition",
+    "icon": "chartCircle"
+  },
+  "options": {},
+  "attributes": {
+    "every": {
+      "type": "enumeration",
+      "enum": [
+        "day",
+        "week",
+        "secondweek",
+        "month"
+      ],
+      "required": true
+    },
+    "enddate": {
+      "type": "date"
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bands",
+  "info": {
+    "singularName": "band",
+    "pluralName": "bands",
+    "displayName": "Band",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "bandname": {
+      "type": "string",
+      "required": true,
+      "maxLength": 50,
+      "unique": true
+    },
+    "country": {
+      "type": "string"
+    },
+    "musicstyle": {
+      "type": "component",
+      "repeatable": false,
+      "component": "musicstyle.musicstyle"
+    },
+    "description": {
+      "type": "text",
+      "maxLength": 2000
+    },
+    "bandphoto": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "linklist": {
+      "displayName": "linklist",
+      "type": "component",
+      "repeatable": true,
+      "component": "linklist.linklist"
+    },
+    "events": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::event.event",
+      "mappedBy": "bands"
+    }
+  }
+}

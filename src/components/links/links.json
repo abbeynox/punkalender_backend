@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_links_links",
+  "info": {
+    "displayName": "links",
+    "icon": "cursor",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "website": {
+      "type": "string",
+      "required": false,
+      "maxLength": 200,
+      "regex": "(https:\\/\\/www\\.|http:\\/\\/www\\.|https:\\/\\/|http:\\/\\/)?[a-zA-Z0-9]{2,}(\\.[a-zA-Z0-9]{2,})(\\.[a-zA-Z0-9]{2,})?\\/[a-zA-Z0-9]{2,}"
+    },
+    "singlelink": {
+      "displayName": "link",
+      "type": "component",
+      "repeatable": true,
+      "component": "link.link"
+    }
+  }
+}
