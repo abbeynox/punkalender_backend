@@ -97,6 +97,7 @@ export interface TicketTicket extends Schema.Component {
   info: {
     displayName: 'ticket';
     icon: 'discuss';
+    description: '';
   };
   attributes: {
     type: Attribute.Enumeration<['Kostenlos', 'Kollekte', 'Eintrittspreis']> &
