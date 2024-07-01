@@ -2,19 +2,19 @@
   "openapi": "3.0.0",
   "info": {
     "version": "1.0.0",
-    "title": "DOCUMENTATION",
+    "title": "Punkalender API Docs",
     "description": "",
-    "termsOfService": "YOUR_TERMS_OF_SERVICE_URL",
+    "termsOfService": "https://punkalender.ch/tos",
     "contact": {
-      "name": "TEAM",
-      "email": "contact-email@something.io",
-      "url": "mywebsite.io"
+      "name": "Web Admin",
+      "email": "admin@punkalender.ch",
+      "url": "https://punkalender.ch"
     },
     "license": {
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2024-06-26T13:23:48.536Z"
+    "x-generation-date": "2024-07-01T08:53:32.630Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -27,12 +27,13 @@
     {
       "url": "http://localhost:1337/api",
       "description": "Development server"
+    },
+    {
+      "url": "https://api.punkalender.ch/api",
+      "description": "Production server"
     }
   ],
-  "externalDocs": {
-    "description": "Find out more",
-    "url": "https://docs.strapi.io/developer-docs/latest/getting-started/introduction.html"
-  },
+
   "security": [
     {
       "bearerAuth": []
