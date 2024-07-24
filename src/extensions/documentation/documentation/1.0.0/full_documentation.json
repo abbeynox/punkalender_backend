@@ -2,19 +2,19 @@
   "openapi": "3.0.0",
   "info": {
     "version": "1.0.0",
-    "title": "Punkalender API Docs",
+    "title": "DOCUMENTATION",
     "description": "",
-    "termsOfService": "https://punkalender.ch/tos",
+    "termsOfService": "YOUR_TERMS_OF_SERVICE_URL",
     "contact": {
-      "name": "Web Admin",
-      "email": "admin@punkalender.ch",
-      "url": "https://punkalender.ch"
+      "name": "TEAM",
+      "email": "contact-email@something.io",
+      "url": "mywebsite.io"
     },
     "license": {
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2024-07-01T08:53:32.630Z"
+    "x-generation-date": "2024-07-24T06:48:19.137Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -27,13 +27,12 @@
     {
       "url": "http://localhost:1337/api",
       "description": "Development server"
-    },
-    {
-      "url": "https://api.punkalender.ch/api",
-      "description": "Production server"
     }
   ],
-
+  "externalDocs": {
+    "description": "Find out more",
+    "url": "https://docs.strapi.io/developer-docs/latest/getting-started/introduction.html"
+  },
   "security": [
     {
       "bearerAuth": []
@@ -859,6 +858,7 @@
                           "type": "string",
                           "enum": [
                             "Concert",
+                            "Konzert",
                             "Festival",
                             "Kufa",
                             "Treff",
@@ -1271,6 +1271,145 @@
                         "creator": {
                           "type": "string"
                         },
+                        "flyer": {
+                          "type": "object",
+                          "properties": {
+                            "data": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "number"
+                                },
+                                "attributes": {
+                                  "type": "object",
+                                  "properties": {
+                                    "name": {
+                                      "type": "string"
+                                    },
+                                    "alternativeText": {
+                                      "type": "string"
+                                    },
+                                    "caption": {
+                                      "type": "string"
+                                    },
+                                    "width": {
+                                      "type": "integer"
+                                    },
+                                    "height": {
+                                      "type": "integer"
+                                    },
+                                    "formats": {},
+                                    "hash": {
+                                      "type": "string"
+                                    },
+                                    "ext": {
+                                      "type": "string"
+                                    },
+                                    "mime": {
+                                      "type": "string"
+                                    },
+                                    "size": {
+                                      "type": "number",
+                                      "format": "float"
+                                    },
+                                    "url": {
+                                      "type": "string"
+                                    },
+                                    "previewUrl": {
+                                      "type": "string"
+                                    },
+                                    "provider": {
+                                      "type": "string"
+                                    },
+                                    "provider_metadata": {},
+                                    "related": {
+                                      "type": "object",
+                                      "properties": {
+                                        "data": {
+                                          "type": "array",
+                                          "items": {
+                                            "type": "object",
+                                            "properties": {
+                                              "id": {
+                                                "type": "number"
+                                              },
+                                              "attributes": {
+                                                "type": "object",
+                                                "properties": {}
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "folder": {
+                                      "type": "object",
+                                      "properties": {
+                                        "data": {
+                                          "type": "object",
+                                          "properties": {
+                                            "id": {
+                                              "type": "number"
+                                            },
+                                            "attributes": {
+                                              "type": "object",
+                                              "properties": {}
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "folderPath": {
+                                      "type": "string"
+                                    },
+                                    "createdAt": {
+                                      "type": "string",
+                                      "format": "date-time"
+                                    },
+                                    "updatedAt": {
+                                      "type": "string",
+                                      "format": "date-time"
+                                    },
+                                    "createdBy": {
+                                      "type": "object",
+                                      "properties": {
+                                        "data": {
+                                          "type": "object",
+                                          "properties": {
+                                            "id": {
+                                              "type": "number"
+                                            },
+                                            "attributes": {
+                                              "type": "object",
+                                              "properties": {}
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "updatedBy": {
+                                      "type": "object",
+                                      "properties": {
+                                        "data": {
+                                          "type": "object",
+                                          "properties": {
+                                            "id": {
+                                              "type": "number"
+                                            },
+                                            "attributes": {
+                                              "type": "object",
+                                              "properties": {}
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
                         "createdAt": {
                           "type": "string",
                           "format": "date-time"
@@ -1442,6 +1581,7 @@
                 "type": "string",
                 "enum": [
                   "Concert",
+                  "Konzert",
                   "Festival",
                   "Kufa",
                   "Treff",
@@ -1489,6 +1629,17 @@
               },
               "creator": {
                 "type": "string"
+              },
+              "flyer": {
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ],
+                "example": "string or id"
               }
             }
           }
@@ -1556,6 +1707,7 @@
             "type": "string",
             "enum": [
               "Concert",
+              "Konzert",
               "Festival",
               "Kufa",
               "Treff",
@@ -2276,6 +2428,7 @@
                                         "type": "string",
                                         "enum": [
                                           "Concert",
+                                          "Konzert",
                                           "Festival",
                                           "Kufa",
                                           "Treff",
@@ -2440,6 +2593,145 @@
                                       "creator": {
                                         "type": "string"
                                       },
+                                      "flyer": {
+                                        "type": "object",
+                                        "properties": {
+                                          "data": {
+                                            "type": "object",
+                                            "properties": {
+                                              "id": {
+                                                "type": "number"
+                                              },
+                                              "attributes": {
+                                                "type": "object",
+                                                "properties": {
+                                                  "name": {
+                                                    "type": "string"
+                                                  },
+                                                  "alternativeText": {
+                                                    "type": "string"
+                                                  },
+                                                  "caption": {
+                                                    "type": "string"
+                                                  },
+                                                  "width": {
+                                                    "type": "integer"
+                                                  },
+                                                  "height": {
+                                                    "type": "integer"
+                                                  },
+                                                  "formats": {},
+                                                  "hash": {
+                                                    "type": "string"
+                                                  },
+                                                  "ext": {
+                                                    "type": "string"
+                                                  },
+                                                  "mime": {
+                                                    "type": "string"
+                                                  },
+                                                  "size": {
+                                                    "type": "number",
+                                                    "format": "float"
+                                                  },
+                                                  "url": {
+                                                    "type": "string"
+                                                  },
+                                                  "previewUrl": {
+                                                    "type": "string"
+                                                  },
+                                                  "provider": {
+                                                    "type": "string"
+                                                  },
+                                                  "provider_metadata": {},
+                                                  "related": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                      "data": {
+                                                        "type": "array",
+                                                        "items": {
+                                                          "type": "object",
+                                                          "properties": {
+                                                            "id": {
+                                                              "type": "number"
+                                                            },
+                                                            "attributes": {
+                                                              "type": "object",
+                                                              "properties": {}
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  },
+                                                  "folder": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                      "data": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                          "id": {
+                                                            "type": "number"
+                                                          },
+                                                          "attributes": {
+                                                            "type": "object",
+                                                            "properties": {}
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  },
+                                                  "folderPath": {
+                                                    "type": "string"
+                                                  },
+                                                  "createdAt": {
+                                                    "type": "string",
+                                                    "format": "date-time"
+                                                  },
+                                                  "updatedAt": {
+                                                    "type": "string",
+                                                    "format": "date-time"
+                                                  },
+                                                  "createdBy": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                      "data": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                          "id": {
+                                                            "type": "number"
+                                                          },
+                                                          "attributes": {
+                                                            "type": "object",
+                                                            "properties": {}
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  },
+                                                  "updatedBy": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                      "data": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                          "id": {
+                                                            "type": "number"
+                                                          },
+                                                          "attributes": {
+                                                            "type": "object",
+                                                            "properties": {}
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      },
                                       "createdAt": {
                                         "type": "string",
                                         "format": "date-time"
@@ -2560,6 +2852,145 @@
           },
           "creator": {
             "type": "string"
+          },
+          "flyer": {
+            "type": "object",
+            "properties": {
+              "data": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "attributes": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "alternativeText": {
+                        "type": "string"
+                      },
+                      "caption": {
+                        "type": "string"
+                      },
+                      "width": {
+                        "type": "integer"
+                      },
+                      "height": {
+                        "type": "integer"
+                      },
+                      "formats": {},
+                      "hash": {
+                        "type": "string"
+                      },
+                      "ext": {
+                        "type": "string"
+                      },
+                      "mime": {
+                        "type": "string"
+                      },
+                      "size": {
+                        "type": "number",
+                        "format": "float"
+                      },
+                      "url": {
+                        "type": "string"
+                      },
+                      "previewUrl": {
+                        "type": "string"
+                      },
+                      "provider": {
+                        "type": "string"
+                      },
+                      "provider_metadata": {},
+                      "related": {
+                        "type": "object",
+                        "properties": {
+                          "data": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "number"
+                                },
+                                "attributes": {
+                                  "type": "object",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "folder": {
+                        "type": "object",
+                        "properties": {
+                          "data": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "number"
+                              },
+                              "attributes": {
+                                "type": "object",
+                                "properties": {}
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "folderPath": {
+                        "type": "string"
+                      },
+                      "createdAt": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "updatedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "createdBy": {
+                        "type": "object",
+                        "properties": {
+                          "data": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "number"
+                              },
+                              "attributes": {
+                                "type": "object",
+                                "properties": {}
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "updatedBy": {
+                        "type": "object",
+                        "properties": {
+                          "data": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "number"
+                              },
+                              "attributes": {
+                                "type": "object",
+                                "properties": {}
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           },
           "createdAt": {
             "type": "string",

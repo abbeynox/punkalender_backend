@@ -420,7 +420,7 @@ export interface ApiEventEvent extends Schema.CollectionType {
         maxLength: 40;
       }>;
     type: Attribute.Enumeration<
-      ['Concert', 'Festival', 'Kufa', 'Treff', 'Andere']
+      ['Concert', 'Konzert', 'Festival', 'Kufa', 'Treff', 'Andere']
     > &
       Attribute.Required &
       Attribute.DefaultTo<'Concert'>;
@@ -441,6 +441,7 @@ export interface ApiEventEvent extends Schema.CollectionType {
     >;
     ticket: Attribute.Component<'ticket.ticket'> & Attribute.Required;
     creator: Attribute.String;
+    flyer: Attribute.Media<'images'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
